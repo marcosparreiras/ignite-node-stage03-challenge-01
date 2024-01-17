@@ -4,7 +4,8 @@
   "description": "API para a adoção de animais, a FindAFriend API, utiliza de conceitos SOLID e testes.",
   "main": "index.js",
   "scripts": {
-    "test": "vitest run"
+    "test": "vitest run",
+    "dev": "tsx --watch ./src/server.ts"
   },
   "keywords": [],
   "author": "Marcos Parreias",
@@ -12,11 +13,20 @@
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20.11.4",
+    "@types/supertest": "^6.0.2",
+    "supertest": "^6.3.4",
+    "tsx": "^4.7.0",
     "typescript": "^5.3.3",
     "vite-tsconfig-paths": "^4.2.3",
     "vitest": "^1.1.2"
   },
   "dependencies": {
-    "bcryptjs": "^2.4.3"
+    "@fastify/jwt": "^8.0.0",
+    "@prisma/client": "5.8.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1",
+    "fastify": "^4.25.2",
+    "prisma": "5.8.1",
+    "zod": "^3.22.4"
   }
 }

@@ -16,7 +16,7 @@ API para a adoção de animais, a FindAFriend API, utiliza de conceitos SOLID e 
 [x] Um pet deve estar ligado a uma ORG
 [x] O usuário que quer adotar, entrará em contato com a ORG via WhatsApp
 [x] Todos os filtros, além da cidade, são opcionais
-[x] Para uma ORG acessar a aplicação como admin, ela precisa estar logada
+[ ] Para uma ORG acessar a aplicação como admin, ela precisa estar logada
 
 ```typescript
 interface Pet {
@@ -29,8 +29,6 @@ interface Pet {
     energyLevel: "low" | "medium" | "high";
     LevelOfIndependence: "low" | "medium" | "high";
     typeOfEnvironment: "closed" | "semi-open" | "open";
-    photos: string[];
-    requirementsForAdoption: string[];
     orgId: string;
     createdAt: Date;
     updatedAt?: Date;

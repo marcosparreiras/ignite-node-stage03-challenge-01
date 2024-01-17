@@ -38,8 +38,6 @@ export interface PetProps {
   levelOfIndependence: PetLevelOfIndependenceOptions;
   typeOfEnvironment: PetTypeOfEnvironmentOptions;
   orgId: UniqueIdentity;
-  photos: string[];
-  requirementsForAdoption: string[];
   createdAt: Date;
   updatedAt?: Date;
 }
@@ -73,14 +71,6 @@ class Pet extends Entity<PetProps> {
     return this.props.typeOfEnvironment;
   }
 
-  get photos() {
-    return this.props.photos;
-  }
-
-  get requirementsForAdoption() {
-    return this.props.requirementsForAdoption;
-  }
-
   get orgId() {
     return this.props.orgId;
   }
@@ -89,18 +79,10 @@ class Pet extends Entity<PetProps> {
     this.props.updatedAt = new Date();
   }
 
-  static create(
-    props: Optional<
-      PetProps,
-      "createdAt" | "photos" | "requirementsForAdoption"
-    >,
-    id?: UniqueIdentity
-  ) {
+  static create(props: Optional<PetProps, "createdAt">, id?: UniqueIdentity) {
     return new Pet(
       {
         ...props,
-        photos: props.photos ?? [],
-        requirementsForAdoption: props.requirementsForAdoption ?? [],
         createdAt: props.createdAt ?? new Date(),
       },
       id
