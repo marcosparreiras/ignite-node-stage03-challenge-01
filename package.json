@@ -1,0 +1,22 @@
+{
+  "name": "challenge-01",
+  "version": "1.0.0",
+  "description": "API para a adoção de animais, a FindAFriend API, utiliza de conceitos SOLID e testes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "keywords": [],
+  "author": "Marcos Parreias",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20.11.4",
+    "typescript": "^5.3.3",
+    "vite-tsconfig-paths": "^4.2.3",
+    "vitest": "^1.1.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3"
+  }
+}
