@@ -18,38 +18,85 @@ API para a adoção de animais, a FindAFriend API, utiliza de conceitos SOLID e 
 [x] Todos os filtros, além da cidade, são opcionais
 [x] Para uma ORG acessar a aplicação como admin, ela precisa estar logada
 
-```typescript
-interface Pet {
-  id: string;
-  props: {
-    name: string;
-    description: string;
-    age: "puppy" | "juvenile" | "adult" | "senior";
-    size: "small" | "medium" | "big";
-    energyLevel: "low" | "medium" | "high";
-    LevelOfIndependence: "low" | "medium" | "high";
-    typeOfEnvironment: "closed" | "semi-open" | "open";
-    orgId: string;
-    createdAt: Date;
-    updatedAt?: Date;
-  };
-}
+## Endpoints
 
-interface Org {
-  id: string;
-  props: {
-    name: string;
-    email: string;
-    password: string;
-    whatsapp: string;
-    address: {
-      city: string;
-      state: string;
-      street: string;
-      number: number;
-    };
-    createdAt: Date;
-    updatedAt?: Date;
-  };
+### Criar uma Org
+
+- Endpoint: `/orgs`
+- Método: POST
+- Descrição: Este endpoint é usado para criar uma nova org
+- Corpo da requisição
+
+```json
+{
+  "name": "string",
+  "email": "string",
+  "password": "string",
+  "whatsapp": "string",
+  "address": {
+    "city": "string",
+    "state": "string",
+    "street": "string",
+    "number": "number"
+  }
+}
+```
+
+### Login como uma Org
+
+- Endpoint: `/orgs/sessions`
+- Método: POST
+- Descrição: Este endpoint é utilizado para fazer login como uma org
+- Corpo da requisição
+
+```json
+{
+  "email": "string",
+  "password": "string"
+}
+```
+
+### Buscar um Pet por ID
+
+- Endpoint: `/pets/:id`
+- Método: GET
+- Descrição: Este endpoint é utilizado para buscar um pet com base na sua ID
+
+### Buscar Pets em uma Cidade
+
+- Endpoint: `/pet/search/:city`
+- Método: GET
+- Descrição: Este endpoint é utilizado para buscar pets em uma cidade com base em diferentes parâmetros
+- Parâmetros de consulta:
+  -- age: "puppy" | "juvenile" | "adult" | "senior"
+  -- size: "small" | "medium" | "big"
+  -- energyLevel: "low" | "medium" | "high"
+  -- LevelOfIndependence: "low" | "medium" | "high"
+  -- typeOfEnvironment: "closed" | "open"
+
+### Criar um Pet
+
+- Endpoint: `/pets`
+- Método: POST
+- Descrição: Este endpoint é utilizado para criar um novo pet
+- Corpo da requisição
+
+```json
+{
+  "name": "string",
+  "description": "string",
+  "age": "puppy" | "juvenile" | "adult" | "senior",
+  "size": "small" | "medium" | "big",
+  "energyLevel": "low" | "medium" | "high",
+  "levelOfIndependence": "low" | "medium" | "high",
+  "typeOfEnvironment": "closed" | "open",
+}
+```
+
+- Cabeçalhos da requisição: É necessário estar autenticado como uma org para esta ação
+
+```json
+{
+  "Authorization": "Bearer token"
 }
 ```

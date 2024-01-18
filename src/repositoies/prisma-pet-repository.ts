@@ -40,6 +40,7 @@ class PrismaPetRepository implements PetRepository {
   async create(pet: Pet): Promise<void> {
     await prisma.pet.create({
       data: {
+        id: pet.id.toString(),
         age: pet.age,
         description: pet.description,
         energyLevel: pet.energyLevel,

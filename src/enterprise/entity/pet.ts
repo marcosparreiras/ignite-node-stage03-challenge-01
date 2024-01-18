@@ -24,9 +24,8 @@ export enum PetLevelOfIndependenceOptions {
   high = "high",
 }
 export enum PetTypeOfEnvironmentOptions {
-  low = "low",
-  medium = "medium",
-  high = "high",
+  closed = "closed",
+  open = "open",
 }
 
 export interface PetProps {

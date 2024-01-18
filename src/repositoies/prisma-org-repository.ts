@@ -29,6 +29,7 @@ class PrismaOrgRepository implements OrgRepository {
   async create(org: Org): Promise<void> {
     await prisma.org.create({
       data: {
+        id: org.id.toString(),
         name: org.name,
         email: org.email,
         password: org.password,

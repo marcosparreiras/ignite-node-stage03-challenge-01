@@ -35,7 +35,7 @@ describe("CreatePetUseCase", () => {
       energyLevel: PetEnergyLevelOptions.high,
       levelOfIndependence: PetLevelOfIndependenceOptions.high,
       size: PetSizeOption.medium,
-      typeOfEnvironment: PetTypeOfEnvironmentOptions.high,
+      typeOfEnvironment: PetTypeOfEnvironmentOptions.open,
     });
 
     expect(pet.orgId).toEqual(newOrg.id);
@@ -53,7 +53,7 @@ describe("CreatePetUseCase", () => {
         energyLevel: PetEnergyLevelOptions.high,
         levelOfIndependence: PetLevelOfIndependenceOptions.high,
         size: PetSizeOption.medium,
-        typeOfEnvironment: PetTypeOfEnvironmentOptions.high,
+        typeOfEnvironment: PetTypeOfEnvironmentOptions.open,
       })
     ).rejects.toBeInstanceOf(ResourceNotFoundError);
   });
@@ -71,7 +71,7 @@ describe("CreatePetUseCase", () => {
         energyLevel: PetEnergyLevelOptions.high,
         levelOfIndependence: PetLevelOfIndependenceOptions.high,
         size: PetSizeOption.medium,
-        typeOfEnvironment: PetTypeOfEnvironmentOptions.high,
+        typeOfEnvironment: PetTypeOfEnvironmentOptions.open,
       })
     ).rejects.toBeInstanceOf(InvalidParameterError);
   });

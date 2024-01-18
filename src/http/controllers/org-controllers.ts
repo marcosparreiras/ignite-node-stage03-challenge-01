@@ -26,9 +26,15 @@ class OrgController {
 
     try {
       const createOrg = makeCreateOrgUseCase();
-      await createOrg.execute({ name, email, password, whatsapp, address });
+      const { org } = await createOrg.execute({
+        name,
+        email,
+        password,
+        whatsapp,
+        address,
+      });
 
-      return reply.status(201).send();
+      return reply.status(201).send({ id: org.id.toString() });
     } catch (error) {
       if (error instanceof EmailAlreadyInUseError) {
         return reply.status(409).send({ message: error.message });

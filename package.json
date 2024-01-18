@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx --watch ./src/server.ts",
+    "build": "tsup ./src --out-dir build",
+    "start": "node ./build/server.js",
     "test": "vitest run dir src/application",
     "test:watch": "vitest dir src/application",
     "test:e2e": "vitest run --dir src/http",
@@ -21,6 +23,7 @@
     "@types/supertest": "^6.0.2",
     "npm-run-all": "4.1.5",
     "supertest": "^6.3.4",
+    "tsup": "8.0.1",
     "tsx": "^4.7.0",
     "typescript": "^5.3.3",
     "vite-tsconfig-paths": "^4.2.3",

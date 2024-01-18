@@ -22,9 +22,12 @@ class PetControllers {
 
     try {
       const createPet = makeCreatePetUseCase();
-      await createPet.execute({ ...data, orgId: request.user.sub });
+      const { pet } = await createPet.execute({
+        ...data,
+        orgId: request.user.sub,
+      });
 
-      return reply.status(201).send();
+      return reply.status(201).send({ id: pet.id.toString() });
     } catch (error) {
       if (
         error instanceof ResourceNotFoundError ||
