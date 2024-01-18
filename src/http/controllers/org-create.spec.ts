@@ -1,7 +1,7 @@
 import app from "../app";
 import request from "supertest";
 
-describe("OrgControllers - authenticate (e2e)", () => {
+describe("Org create (e2e)", () => {
   beforeAll(async () => {
     await app.ready();
   });
@@ -10,8 +10,8 @@ describe("OrgControllers - authenticate (e2e)", () => {
     await app.close();
   });
 
-  it.skip("Should be able to authenticate a org", async () => {
-    await request(app.server)
+  it("Should be able to create a org", async () => {
+    const response = await request(app.server)
       .post("/orgs")
       .send({
         name: "Org-01",
@@ -26,12 +26,6 @@ describe("OrgControllers - authenticate (e2e)", () => {
         },
       });
 
-    const response = await request(app.server).post("/orgs/sessions").send({
-      email: "org01@test.com",
-      password: "123456",
-    });
-
-    expect(response.statusCode).toEqual(200);
-    expect(response.body.token).toEqual(expect.any(String));
+    expect(response.statusCode).toEqual(201);
   });
 });

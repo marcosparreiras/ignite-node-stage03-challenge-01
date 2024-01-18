@@ -4,7 +4,13 @@ import PetRepository from "../repositories/pet-repository";
 
 interface FetchPetsByCityUseCaseRequest {
   city: string;
-  filters?: Partial<PetProps>;
+  filters?: {
+    age?: string;
+    size?: string;
+    energyLevel?: string;
+    levelOfIndependence?: string;
+    typeOfEnvironment?: string;
+  };
 }
 
 interface FetchPetsByCityUseCaseResponse {
@@ -28,7 +34,7 @@ class FetchPetsByCityUseCase {
     for (let org of orgsInCity) {
       const orgPets = await this.petRepository.fetchManyByOrgId(
         org.id.toString(),
-        filters
+        filters as Partial<PetProps>
       );
 
       pets.push(...orgPets);
