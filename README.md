@@ -18,7 +18,52 @@
 - [x] Todos os filtros, além da cidade, são opcionais
 - [x] Para uma ORG acessar a aplicação como admin, ela precisa estar logada
 
-## Endpoints
+# Teste a aplicação em sua máquina
+
+Certifique-se de ter o Docker e o Node.js instalados em sua máquina antes de prosseguir.
+
+- [Docker](https://www.docker.com/)
+- [Node.js](https://nodejs.org/)
+
+1. Faça o clone do projeto
+
+```bash
+git clone https://github.com/marcosparreiras/ignite-node-stage03-challenge-01.git
+```
+
+2. Navegue até diretório do projeto e instale as dependências com o comando:
+
+```bash
+npm install
+```
+
+3. Renomeie o arquivo `.env.example` para `.env` e complete as variaveis de ambiente com informações válidas
+
+4. Suba o banco de dados utilizando Docker Compose:
+
+```bash
+docker compose up -d
+```
+
+5. Inicie a aplicação em modo de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+ou, rode os testes de unidade com o comando:
+
+```bash
+npm run test
+```
+
+ou, rode os testes end-to-end com o comando:
+
+```bash
+npm run test:e2e
+```
+
+# Endpoints
 
 ### Criar uma Org
 
@@ -42,6 +87,8 @@
 }
 ```
 
+---
+
 ### Login como uma Org
 
 - Endpoint: `/orgs/sessions`
@@ -56,11 +103,15 @@
 }
 ```
 
+---
+
 ### Buscar um Pet por ID
 
 - Endpoint: `/pets/:id`
 - Método: GET
 - Descrição: Este endpoint é utilizado para buscar um pet com base na sua ID
+
+---
 
 ### Buscar Pets em uma Cidade
 
@@ -73,6 +124,8 @@
   -- energyLevel: "low" | "medium" | "high"
   -- LevelOfIndependence: "low" | "medium" | "high"
   -- typeOfEnvironment: "closed" | "open"
+
+---
 
 ### Criar um Pet
 
